@@ -30,3 +30,9 @@
                 echo "Application finished."
 • name: Display app output
               run: cat app_output.txt
+
+// Program.cs
+Console.WriteLine("Hello, World!");
+Console.WriteLine($"Current Date and Time: {DateTime.Now}");
+Console.WriteLine("Group: ИС-23Б"); 
+Console.WriteLine("FIO: Gusikhin E.A.");
