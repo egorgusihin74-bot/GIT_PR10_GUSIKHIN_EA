@@ -1,38 +1,31 @@
- # .github/workflows/build-and-run.yml
-        name: .NET Build and Run
+name: .NET Build and Run
 
-        on:
-          push:
-            branches: [ main ] 
-          pull_request:
-            branches: [ main ] 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-        jobs:
-          build-and-run:
-            runs-on: ubuntu-latest 
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
 
-            steps:
-• name: Checkout repository
-              uses: actions/checkout@v4 
-• name: Setup .NET
-              uses: actions/setup-dotnet@v4
-              with:
-                dotnet-version: '8.0.x' 
-• name: Restore dependencies
-              run: dotnet restore 
-• name: Build project
-              run: dotnet build --no-restore 
-• name: Run application and capture output
-              run: |
-                echo "Running application..."
-                dotnet run --project GITPR10GusikhinEA.csproj > appoutput.txt 
-                cat app_output.txt
-                echo "Application finished."
-• name: Display app output
-              run: cat app_output.txt
-
-// Program.cs
-Console.WriteLine("Hello, World!");
-Console.WriteLine($"Current Date and Time: {DateTime.Now}");
-Console.WriteLine("Group: ИС-23Б"); 
-Console.WriteLine("FIO: Gusikhin E.A.");
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build project
+        run: dotnet build --no-restore
+      - name: Run application and capture output
+        run: |
+          echo "Running application..."
+          dotnet run --project GITPR10GusikhinEA.csproj > appoutput.txt
+          cat appoutput.txt
+          echo "Application finished."
+      - name: Display app output
+        run: cat appoutput.txt
